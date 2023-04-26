@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Démo Calc 1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;   /* Body 100% de hauteur */
+            padding: 0px;
+            margin: 0px;
+            background-color: #cccccc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: white; 
+        }
+        .contenant {
+            height: 100%;   /* div principal 100% de body = toute la hauteur */
+            background-color: blueviolet;
+
+        }
+        .contenant h1 {
+            height: 80px;
+            margin: 0px;
+            background-color: blue;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .contenu {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 0px;
+            font-size: large;
+            height: 100%;   /* 100% du conteneur PARENT est 100$ de contenant, donc toute la hauteur */
+            
+            /* 11111 - Avec calc, on déduit la hauteur du header, % - px possible avec calc() */
+            
+            height: calc(100% - 80px);
+            overflow: auto;
+           
+            /* Essayer de réduire la hauteur du navigateur: scrollbar juste pour le contenu */
+        }
+    </style>
+</head>
+<body>
+    <div class="contenant">
+        <h1>Démo Calc() 1</h1>
+        <p class="contenu"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, commodi velit. Assumenda architecto rerum adipisci dicta totam quo 
+                            quos eius doloremque voluptas, odio quod, iusto inventore accusamus a cum vitae? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Ex similique aspernatur accusamus eos quos, fuga hic temporibus perferendis dolorem repudiandae incidunt delectus nesciunt cumque blanditiis 
+                            tempore vitae animi exercitationem deserunt?  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis suscipit facilis voluptate 
+                            error, beatae dolorum nam temporibus officiis pariatur commodi voluptatibus illo enim placeat dicta, magnam, itaque repudiandae adipisci! 
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, commodi velit. Assumenda architecto rerum adipisci dicta totam quo 
+                            quos eius doloremque voluptas, odio quod, iusto inventore accusamus a cum vitae? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Ex similique aspernatur accusamus eos quos, fuga hic temporibus perferendis dolorem repudiandae incidunt delectus nesciunt cumque blanditiis 
+                            tempore vitae animi exercitationem deserunt?  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis suscipit facilis voluptate 
+                            error, beatae dolorum nam temporibus officiis pariatur commodi voluptatibus illo enim placeat dicta, magnam, itaque repudiandae adipisci! 
+                            Animi.
+        </p>
+    </div>
+</body>
+</html>

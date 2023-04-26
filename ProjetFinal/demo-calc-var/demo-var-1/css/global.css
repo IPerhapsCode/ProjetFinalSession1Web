@@ -1,0 +1,293 @@
+/*****************************/
+/***** MOBILE EN PREMIER *****/
+/*****************************/
+
+
+/********** GENERAL **********/
+:root{
+    /* Variables pour le theme */
+    /* 11111 - changer le theme ici et visionner le résultat */
+    --theme-bg-header: #920F3B;     /*  #000000 ou #920F3B */
+    --theme-texte-logo: #FEC5F3;    /*  #FFD700 ou #FEC5F3 */
+    --theme-police-logo: 'Times';
+                                      /* 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif */
+                                      /* ou 'Times' */
+    --theme-bg-titres: #920F3B;     /*  #000000 ou #920F3B */
+    --theme-texte-titres: #FEC5F3;  /*  #FFFFFF ou #FEC5F3 */
+    --theme-bg-apropos: #FEC5F3;    /*  #DEB887 ou #FEC5F3 */ 
+    --theme-texte-apropos:#920F3B;  /*  #000000 ou #920F3B */
+    --theme-bordures-services: 0.5vw solid #920F3B ;
+                                      /* 0.5vw solid darkgoldenrod */
+                                      /* 0.5vw solid #920F3B */
+    --theme-bordures-portfolio: 0.5vw solid #920F3B ;
+                                      /* 0.5vw solid darkblue */
+                                      /* 0.5vw solid #920F3B */
+
+    /* Variables pour bordures */
+    /* 22222 - modifier les bordures pour les sections apropos et services */
+    --bordures-taille: 2px;          /*  0.5vw ou 2px */
+    --bordures-coins: 0px;             /* 5px ou 0px */
+
+    /* Changer l'image en grand format */
+    /* Changer dans requêtes media */
+    --img-hero-petit:url(../images/img-hero-petit.jpg);
+    --img-hero-moyen:url(../images/img-hero-moyen.png);
+    --img-hero-grand:url(../images/img-hero-grand.png);
+
+    /* Contrôle du texte pour Hero */
+    /* Utilisé dans un calc, base + adaptatif */
+    /* Changer dans requêtes media */
+    --taille-police-hero-base: 24px;
+    --taille-police-hero-adaptatif: 1.4vw;
+}
+
+* {                             /* Point de départ pour tous les éléments */
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+body, html{                     /* Page pleine largeur */
+    background-color: lightgray;
+    width:100%;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{                             /* Titres de sections */
+    color: var(--theme-texte-logo);
+    font-size: 2em;
+    font-family: var(--theme-police-logo);
+    padding: 1.5vw
+}
+
+h2{                             /* Titres d'itens dans les sections */
+    background-color: var(--theme-bg-titres);
+    color: var(--theme-texte-titres);
+    padding: 1vw;
+}
+
+
+/********** SECTION HEADER **********/
+.header{
+    background-color: var(--theme-bg-header);
+    display: flex;
+    flex-direction: column;     /* Items en colonne dans le header pour mobile */
+    align-items: center;
+}
+
+.header ul{                     /* Menu fait avec une liste */
+    width: 100%;
+    display: flex;
+    flex-direction: column;     /* Items de la liste de menu en colonne pour mobile */
+}
+
+.header ul li{
+    list-style-type: none;
+    border: 1px solid white;
+    border-bottom: none;        /* Pas de bordure en bas pour ne pas dédoubler bordure haut+bas entre les items */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header ul li:last-of-type{     /* Dernier item de menu besoin bordure bas */
+    border-bottom: 1px solid white;
+}
+
+.header li a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/********** SECTION HERO **********/
+.hero{
+    height:250px;
+    background-color: black;
+    background-image: var(--img-hero-petit);    /* Image est un arrière-plan pour pouvoir ajouter du texte par dessus */
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.hero p{
+    color:white;
+    font-size: calc(var(--taille-police-hero-base) + var(--taille-police-hero-adaptatif));
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+    width: 60%;                         /* pour garder le texte plus à gauche de l'image */
+    padding: 2vw;
+}
+
+/********** SECTION SERVICES **********/
+.services{
+    padding: 1.1vw 0px;
+}
+
+.services .items-services div{
+    background-color: white;
+    border: var(--theme-bordures-services);
+    border-width: var(--bordures-taille);
+    border-radius: var(--bordures-coins);
+    margin: 2vw;
+    padding: 1vw;
+}
+
+.services div h3{
+    color:darkblue;
+}
+
+/********** SECTION A PROPOS **********/
+.about{
+    background-color: var(--theme-bg-apropos);
+    color: var(--theme-texte-apropos);
+}
+
+.about p{
+    padding: 1vw;
+    margin-bottom: 2vw;;
+}
+
+.about img{
+    display:none;
+}
+
+/********** SECTION PORTFOLIO **********/
+.portfolio{
+    background-color: lightgray;
+}
+
+.portfolio .items-portfolio div{
+    padding: 1vw;
+    height: 220px;
+    margin: 4vw 0px;
+    overflow: hidden;               /* Pour que l'image ne dépasse pas de la hauteur fixe du div */
+                                    /* combiné avec border-box, apporte un problème de bordure de bas non résolu */
+}
+
+.portfolio .items-portfolio div img{
+    width: 100%;
+    border: var(--theme-bordures-portfolio);
+    border-width: var(--bordures-taille);
+    border-radius: var(--bordures-coins);
+}
+
+/********** SECTION FOOTER **********/
+.footer{
+    background-color: black;
+    color: white;
+    padding: 2vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*************************************/
+/***** FORMAT TABLETTE - > 768px *****/
+/*************************************/
+@media screen and (min-width: 769px){
+    :root{
+        /* petit était 24px + 1.4vw */
+        --taille-police-hero-base: 28px;  
+        --taille-police-hero-adaptatif: 1.5vw;
+       
+    }
+    
+    /* SECTION HEADER */
+    .header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .header ul{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 450px;
+    }
+    .header ul li{
+        border: none;
+        justify-content: center;
+    }
+    .header ul li:last-of-type{     /* Dernier item de menu besoin bordure bas */
+        border-bottom: none;
+    }
+
+    /* SECTION HERO */
+    .hero{
+        
+        background-image: var(--img-hero-moyen);
+       
+     }
+
+    /* SECTION SERVICES */
+    .items-services{
+        display:flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .services .items-services div{
+        width: 44vw;
+    }
+
+    /* SECTION A PROPOS */
+    .about{
+        display: flex;
+        margin: 2vw 0px;
+    }
+    .about img{
+        display:inline;
+        width:45%;
+    }
+
+    /* SECTION PORTFOLIO */
+    .portfolio .items-portfolio{
+        display:flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .portfolio .items-portfolio div{
+        height: 300px;
+        width:48vw;
+    }
+}
+
+
+/*************************************/
+/***** FORMAT ÉCRAN - > 1200px *****/
+/*************************************/
+@media screen and (min-width: 1201px){
+    :root{
+        /* moyen était 28px + 1.5vw */
+        --taille-police-hero-base: 34px;
+        --taille-police-hero-adaptatif: 1.6vw;
+       
+    }
+    
+    /* SECTION HERO */
+    .hero{
+        
+        background-image: var(--img-hero-grand);
+       
+     }
+
+    /* SECTION SERVICES */
+    .services .items-services div{
+        width: 20vw;
+    }
+
+    /* SECTION A PROPOS */
+    .about{
+        background-color: white;
+    }
+
+    .about h2{
+        color: darkblue;
+        background-color: white;
+        border-bottom: 1px solid darkblue;
+    }
+
+    /* SECTION PORTFOLIO */
+    .portfolio .items-portfolio div{
+        height: 400px;
+        width:32vw;
+    }
+}
