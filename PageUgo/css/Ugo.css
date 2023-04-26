@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+:root{
+    --text-size:2vw;
+    --title-size:3vw;
+    --border-size:0.4vw;
+    --border-raidus-size:5px;
+    --link-color:pink;
+}
+html, body{
+    margin:auto;
+    padding:auto;
+    box-sizing: border-box;
+    background-image: url(../img/FlowerBackground.png);
+}
+.test{
+    display:flex;
+    justify-content: center;
+}
+
+/*Header*/
+.header{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    width:100%;
+    color:white;
+    font-family: 'Jost', sans-serif;
+}
+.header-name{
+    padding:1vw;
+    padding-top:1vw;
+    padding-bottom:1vw;
+    font-size:var(--title-size);
+    font-family: 'Jost', sans-serif;
+}
+.header-hamburger{
+    width:4vw;
+    height:4vw;
+    padding:1vw;
+}
+.header-list{
+    display:none;
+}
+
+/* Main Body*/
+.MainBody{
+    display: flex;
+}
+.MainBody-side{
+    background-color: pink;
+    height: 100vw;
+    width: 12%;
+}
+.MainBody-background{
+    height: 100vw;
+    width: 76%;
+}
+.MainBody-items{
+    flex-wrap: wrap;
+}
+.MainBody-image{
+    width: 15vw;
+    height: 20vw;
+
+}
+.MainBody-text{
+    font-size: var(--text-size);
+}
+
+/* Footer */
+.footer{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:2vw;
+}
+.footer-copyright{
+    color:lightgrey;
+    font-size: 1vw;
+    font-family: 'Poppins', sans-serif;
+}
+.footer-lien{
+    display:flex;
+    justify-content: space-evenly;
+}
+.footer-pic{
+    width:2vw;
+    max-width:15px;
+    margin-right:2vw;
+}
+.footer-pic:active{
+    border:white solid var(--border-size);
+    border-radius:var(--border-raidus-size);
+}
+.footer-pic:hover{
+    width:3vw;
+    max-width: 200px;
+}
+
+/*Size differences*/
+@media screen and (min-width: 768px) {
+    
+ } 
+
+ @media screen and (min-width: 1200px) {
+    
+ } 
