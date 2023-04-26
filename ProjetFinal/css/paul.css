@@ -7,6 +7,7 @@
     --border-size:0.4vw;
     --border-raidus-size:5px;
     --link-color:#1b87fa;
+    --width-max:1600px;
 }
 
 html, body{
@@ -35,7 +36,7 @@ html, body{
 .main-zone{
     display:flex;
     justify-content: center;
-    max-width:1600px;
+    max-width:var(--width-max);
 }
 
 .main-items{
@@ -60,12 +61,14 @@ html, body{
 .hero-zone{
     display:flex;
     justify-content:center;
+    padding:4vw;
+    padding-top:2vw;
+    padding-bottom:2vw;
 }
 
 .hero{
-    width: calc(90vw - 2vw - 2vw);
-    padding:2vw;
-    max-width:calc(calc(1600px * 88) / 100);
+    width: calc(90vw - 3vw - 3vw);
+    max-width:calc(calc(var(--width-max) * 92) / 100);
 }
 
 /*Competence*/
@@ -87,7 +90,7 @@ html, body{
 .competence-showcase-text{
     font-size:var(--text-size);
     padding:1vw;
-    text-align:center;
+    text-align: center;
 }
 
 /* Portefolio */
@@ -191,6 +194,12 @@ html, body{
         text-decoration: underline;
     }
 
+    /*Hero*/
+    .hero-zone{
+        padding-right: 1vw;
+        padding-left:1vw;
+    }
+
     /*Competence*/
     .competence-zone{
         display:flex;
@@ -232,16 +241,18 @@ html, body{
 
     /*Header*/
     .header-links{
-        font-size:calc(calc(1600px * 2) / 100);
+        font-size:calc(calc(var(--width-max) * 1.5) / 100);
     }
 
     /*Competence*/
     .competence-showcase{
         width: 26%;
+        margin-right:1vw;
+        margin-left:1vw;
      }
 
      .competence-showcase-title{
-        font-size: calc(calc(1600px * 2.7) / 100);
+        font-size: calc(calc(var(--width-max) * 2.2) / 100);
      }
 
     /*Portfolio*/
@@ -254,7 +265,7 @@ html, body{
 
      .portfolio-pic{
         width:24vw;
-        max-width:calc(calc(1600px * 20) / 100);
+        max-width:calc(calc(var(--width-max) * 24) / 100);
      }
 
      .portfolio-text-titre{
