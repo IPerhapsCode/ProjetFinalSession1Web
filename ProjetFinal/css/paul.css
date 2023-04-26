@@ -1,5 +1,6 @@
+/*Paul-Étienne Paquin*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-
+/*span visited emoji/symbole écrire texte*/
 :root{
     --text-size:2vw;
     --title-size:3vw;
@@ -16,35 +17,6 @@ html, body{
 }
 
 /*Small form factor and base values*/
-
-/*Header*/
-/* .header{
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    background-color: black;
-    width:100%;
-    color:white;
-    font-family: 'Poppins', sans-serif;
-    max-width:1600px;
-}
-
-.header-name{
-    padding:1vw;
-    padding-top:1vw;
-    padding-bottom:1vw;
-    font-size:var(--title-size);
-}
-
-.header-hamburger{
-    width:4vw;
-    height:4vw;
-    padding:1vw;
-}
-
-.header-list{
-    display:none;
-} */
 
 /*Main*/
 .main-zone{
@@ -78,9 +50,9 @@ html, body{
 }
 
 .hero{
-    width: 86vw;
+    width: calc(90vw - 2vw - 2vw);
     padding:2vw;
-    max-width:calc(calc(1600px*88)/100);
+    max-width:calc(calc(1600px * 88) / 100);
 }
 
 /*Competence*/
@@ -171,43 +143,6 @@ html, body{
     background-image: url("../img/banner_moi.gif");
     background-position: bottom;
 }
-
-/* Footer */
-/* .footer{
-    background-color: black;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding:2vw;
-    max-width:1600px;
-}
-
-.footer-copyright{
-    color:lightgrey;
-    font-size: 1vw;
-    font-family: 'Poppins', sans-serif;
-}
-
-.footer-lien{
-    display:flex;
-    justify-content: space-evenly;
-}
-
-.footer-pic{
-    width:2vw;
-    max-width:15px;
-    margin-right:2vw;
-}
-
-.footer-pic:active{
-    border:white solid var(--border-size);
-    border-radius:var(--border-raidus-size);
-}
-
-.footer-pic:hover{
-    width:3vw;
-    max-width: 200px;
-} */
 
 /*Medium sized screens*/
 @media screen and (min-width:768px){
