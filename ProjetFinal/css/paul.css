@@ -1,6 +1,6 @@
 /*Paul-Étienne Paquin*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-/*span visited emoji/symbole écrire texte*/
+/*span, visited, écrire texte, */
 :root{
     --text-size:2vw;
     --title-size:3vw;
@@ -16,7 +16,20 @@ html, body{
     background-color: darkgrey;
 }
 
+.max-width-1600{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 /*Small form factor and base values*/
+
+/*Header*/
+.header{
+    background-image: url("../img/banner_moi_2.gif");
+    position:sticky;
+    top:0;
+}
 
 /*Main*/
 .main-zone{
@@ -132,7 +145,6 @@ html, body{
 }
 
 /*Moi*/
-
 .moi-texte{
     font-family: 'Poppins', sans-serif;
     font-size: var(--text-size);
@@ -142,6 +154,11 @@ html, body{
     color:white;
     background-image: url("../img/banner_moi.gif");
     background-position: bottom;
+}
+
+/*Footer*/
+.footer{
+    background-image: url("../img/banner_moi_2.gif");
 }
 
 /*Medium sized screens*/
@@ -213,24 +230,31 @@ html, body{
 
 @media screen and (min-width:1200px){
 
+    /*Header*/
+    .header-links{
+        font-size:calc(calc(1600px * 2) / 100);
+    }
+
     /*Competence*/
     .competence-showcase{
         width: 26%;
      }
 
      .competence-showcase-title{
-        font-size:2.7vw;
-    }
+        font-size: calc(calc(1600px * 2.7) / 100);
+     }
 
     /*Portfolio*/
     .portfolio-showcase{
         width:25%;
         margin:0;
         margin-bottom:1vw;
+        padding-bottom:1vw;
      }
 
      .portfolio-pic{
         width:24vw;
+        max-width:calc(calc(1600px * 20) / 100);
      }
 
      .portfolio-text-titre{
@@ -244,9 +268,4 @@ html, body{
     .portfolio-text-lien{
         font-size:1.5vw;
     }
-}
-
-/*Enormous screens*/
-@media screen and (min-width:1600px){
-
 }
