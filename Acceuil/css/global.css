@@ -11,6 +11,7 @@
     --link-color:#1b87fa;
     --border-size:0.4vw;
     --border-raidus-size:5px;
+    --width-max:1600px;
 }
 
 html, body{
@@ -29,7 +30,7 @@ html, body{
     width:100%;
     color:white;
     font-family: 'Poppins', sans-serif;
-    max-width:1300px;
+    max-width:var(--width-max);
 }
 
 .header-name{
@@ -57,7 +58,7 @@ html, body{
     align-items: center;
     width:100%;
     padding:2vw;
-    max-width:1300px;
+    max-width:var(--width-max);
 }
 
 .footer-copyright{
