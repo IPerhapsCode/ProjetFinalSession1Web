@@ -84,7 +84,7 @@ html, body{
 .competence-showcase-text{
     font-size:var(--text-size);
     padding:1vw;
-    text-align: center;
+    text-align:center;
 }
 
 /* Portefolio */
@@ -272,5 +272,16 @@ html, body{
     
     .portfolio-text-lien{
         font-size:1.5vw;
+    }
+}
+
+@media screen and (min-width:1600px){
+
+    .header-name{
+        font-size:60px;
+    }
+
+    .competence-showcase-text{
+        font-size:1.2vw;
     }
 }
