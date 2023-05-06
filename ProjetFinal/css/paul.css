@@ -17,12 +17,6 @@ html, body{
     background-color: darkgrey;
 }
 
-.max-width-1600{
-    display:flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 /*Small form factor and base values*/
 
 /*Header*/

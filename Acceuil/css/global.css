@@ -21,6 +21,12 @@ html, body{
     background-color: darkgrey;
 }
 
+.max-width-1600{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 /*Header*/
 .header{
     display:flex;
@@ -50,6 +56,8 @@ html, body{
     display:none;
 }
 
+/* Main */
+
 /* Footer */
 .footer{
     background-color: black;
@@ -57,13 +65,13 @@ html, body{
     justify-content: space-between;
     align-items: center;
     width:100%;
-    padding:2vw;
     max-width:var(--width-max);
 }
 
 .footer-copyright{
     color:lightgrey;
     font-size: 1vw;
+    padding:2vw;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -75,7 +83,7 @@ html, body{
 .footer-pic{
     width:2vw;
     max-width:15px;
-    margin-right:2vw;
+    padding:2vw;
 }
 
 .footer-pic:active{
