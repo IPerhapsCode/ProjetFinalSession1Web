@@ -1,4 +1,4 @@
-/*Paul-Étienne, Ugo, Mohamed*/
+/*Paul-Étienne, Ugo*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 :visited{
@@ -78,7 +78,7 @@ html, body{
 .main-div{
     background-color: black;
     margin: 2vw;
-    width: 1/3fr;
+    width: 100%;
     display:flex;
     align-items:center;
     flex-direction:row;
@@ -93,6 +93,7 @@ html, body{
 .main-text{
     display: block;
     font-size: var(--text-size);
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Footer */
@@ -110,17 +111,19 @@ html, body{
     font-size: 1vw;
     padding:2vw;
     font-family: 'Poppins', sans-serif;
+    display:flex;
+    flex-grow:5;
 }
 
 .footer-lien{
     display:flex;
     justify-content: space-evenly;
+    flex-grow:1;
 }
 
 .footer-pic{
     width:2vw;
     max-width:15px;
-    padding:2vw;
 }
 
 .footer-pic:active{
@@ -131,6 +134,10 @@ html, body{
 .footer-pic:hover{
     width:3vw;
     max-width: 20px;
+}
+
+.footer-pic:visited{
+    display:none;
 }
 
 @media screen and (min-width:768px){
@@ -163,6 +170,11 @@ html, body{
     .header-links:active{
         text-decoration: underline;
     }
+
+    .header-links:visited{
+        color:red;
+    }
+
     .zone-main{
         display: flex;
         justify-content: space-evenly;
