@@ -1,1 +1,2 @@
-Background image dans le header/footer
+Span
+selecteur d'attribut page perso
