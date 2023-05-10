@@ -56,6 +56,16 @@ html, body{
     display:none;
 }
 
+/* Welcomne */
+.intro{
+    background-color: black;
+    width: 80%;
+    text-align: center;
+}
+.intro-gif{
+    width: 20%;
+}
+
 /* Main */
 .zone-main{
     display:flex;
