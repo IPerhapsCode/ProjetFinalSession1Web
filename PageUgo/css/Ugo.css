@@ -398,31 +398,4 @@ html, body{
     }
 }
 
-/* Le plus gros screen */
-@media screen and (min-width:1600px){
-    .port{
-        display:flex;
-        align-items:center;
-    }
-
-    .port-section{
-        flex-wrap: wrap;
-        flex-direction:column;
-        justify-content: center;
-    }
-
-    .port-titre{
-        display:flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        font-size: calc(5.2vw - var(--title-size));
-        color: pink;
-    }
-
-    .moi-text{
-      padding: 2vw;
-    }
-
-}
-
 
