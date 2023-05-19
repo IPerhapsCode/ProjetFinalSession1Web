@@ -370,12 +370,12 @@ html, body{
         flex-wrap: wrap;
         flex-direction:column-reverse;
         justify-content: center;
-        width: 20vw;
+        width: 19vw;
     }
 
     .port-small{
         order:2;
-        width:18vw;
+        width:17vw;
         height:20vw;
         margin-top:2vw;
     }
