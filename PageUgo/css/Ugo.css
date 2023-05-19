@@ -95,7 +95,10 @@ html, body{
 .main-body{
     display:flex;
     justify-content: center;
+    width:100%;
+    height: 80%;
     max-width:var(--width-max);
+    margin:auto;
 }
 
 .main-items{
@@ -147,11 +150,13 @@ html, body{
     background-color: black;
     margin: 2vw;
     width: 100%;
+    height: calc( - 6vw);
     display:flex;
     align-items:center;
     flex-direction:row;
     text-align: center;
     padding: 1vw;
+    justify-content: space-between;
 }
 
 .port-titre{
@@ -172,12 +177,13 @@ html, body{
 .port-big{
     width: 50vw;
     border: pink solid 5px;
+    display: inline;
 }
 
 .port-small{
     display: inline;
-    width: 18vw;
-    height: 18vw;
+    width: 16vw;
+    height: 16vw;
     border: pink double 5px;
     margin-top:0;
 
@@ -198,6 +204,8 @@ html, body{
     text-align: center;
     border: pink solid 3px;
     flex-grow: 10vw;
+    justify-content: space-between;
+
 }
 
 .skill-image{
@@ -246,6 +254,7 @@ html, body{
     background-image:url(../img/petals.gif) ;
     background-position: center;
     background-color: black;
+    margin: auto;
 }
 
 .footer-copyright{
@@ -275,7 +284,7 @@ html, body{
     max-width: 200px;
 }
 
-/*Medium sized screens*/
+/*Un screen medium*/
 @media screen and (min-width:768px){
 
     /*Header*/
@@ -343,8 +352,7 @@ html, body{
     }
 }
 
-/*Large sized screens*/
-
+/*Un gros screen*/
 @media screen and (min-width:1200px){
 
     /*Header*/
@@ -359,17 +367,16 @@ html, body{
     }
 
     .port-section{
-        display: flex;
         flex-wrap: wrap;
         flex-direction:column-reverse;
         justify-content: center;
-        width: 28%;
+        width: 20vw;
     }
 
     .port-small{
         order:2;
-        width:21vw;
-        height:21vw;
+        width:18vw;
+        height:20vw;
         margin-top:2vw;
     }
 
@@ -377,7 +384,7 @@ html, body{
         display:flex;
         flex-direction: column;
         justify-content: space-evenly;
-        font-size: calc(5.2vw - var(--title-size));
+        font-size: var(--title-size);
         color: pink;
         padding: calc(4vw - 10%);
     }
@@ -386,7 +393,36 @@ html, body{
         display: contents;
         justify-content: center;
         order:1;
-        font-size: var(--text-size);
+        font-size: calc(var(--text-size) - 1vw);
+        align-items: center;
     }
-    
 }
+
+/* Le plus gros screen */
+@media screen and (min-width:1600px){
+    .port{
+        display:flex;
+        align-items:center;
+    }
+
+    .port-section{
+        flex-wrap: wrap;
+        flex-direction:column;
+        justify-content: center;
+    }
+
+    .port-titre{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: calc(5.2vw - var(--title-size));
+        color: pink;
+    }
+
+    .moi-text{
+      padding: 2vw;
+    }
+
+}
+
+
