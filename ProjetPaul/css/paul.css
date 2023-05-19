@@ -1,10 +1,10 @@
 /*Paul-Étienne Paquin*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-/*span, visited, écrire texte, */
+
 :root{
     --text-size:2vw;
     --title-size:3vw;
-    --border-size:0.4vw;
+    --border-size:0.3vw;
     --border-raidus-size:5px;
     --link-color:#1b87fa;
     --width-max:1600px;
@@ -35,11 +35,13 @@ html, body{
 }
 
 .main-items{
+    display:inline;
     background-color: white;
     width:90%;
 }
 
 .sections-title{
+    display:block;
     background-color: black;
     font-family:'Poppins', sans-serif;
 }
@@ -132,6 +134,10 @@ html, body{
     font-size:var(--text-size);
     color:white;
     text-decoration:none;
+}
+
+.portfolio-text-lien:visited{
+    color:red;
 }
 
 .portfolio-text-lien:active{
@@ -236,7 +242,6 @@ html, body{
 }
 
 /*Large sized screens*/
-
 @media screen and (min-width:1200px){
 
     /*Header*/
@@ -281,6 +286,7 @@ html, body{
     }
 }
 
+/*Larger screen size*/
 @media screen and (min-width:1600px){
 
     .header-name{
