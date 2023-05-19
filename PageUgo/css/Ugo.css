@@ -280,8 +280,7 @@ html, body{
 }
 
 .footer-pic:hover{
-    width:3vw;
-    max-width: 200px;
+    opacity: 50%;
 }
 
 /*Un screen medium*/
