@@ -242,6 +242,8 @@ html, body{
     text-align: center;
     align-content: center;
     margin-bottom: 2vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
 }
 
 /* Footer */
@@ -280,8 +282,7 @@ html, body{
 }
 
 .footer-pic:hover{
-    width:3vw;
-    max-width: 200px;
+    opacity: 50%;
 }
 
 /*Un screen medium*/
