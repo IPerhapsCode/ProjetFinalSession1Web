@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat</title>
+        <link rel="stylesheet" href="css/global.css">
+        <script src="dist/chat.js"></script>
+        <link rel="icon" href="img/favicon.png" type="image/png" />
+    </head>
+    <body id="chat-main">
+        <div id="background-zone"></div>
+        <div id="game" oncontextmenu="event.preventDefault();"></div>
+        <div id="chat">
+            <div id="vue-container">
+            </div>
+            <textarea id="send-message" cols="30" rows="10"></textarea>
+            <div id="show-members">Online members :</div>
+            <div id="btn-container">
+                <a class="chat-buttons" id="sign-out-btn" href="javascript:void(0)">Sign Out</a>
+                <button class="chat-buttons" id="show-members-btn"> Show members</button>
+                <button class="chat-buttons" id="send-msg-btn">Send Message</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Accueil</title>
+        <script src="dist/index.js"></script>
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="icon" href="img/favicon.png" type="image/png" />
+    </head>
+    <body id="index-main">        
+        <div id="background-zone"></div>
+        <div id="game" oncontextmenu="event.preventDefault();"></div>
+        <form id="login-form" action="" method="post" autocomplete="off">
+            <div class="sign-in-input-group">
+                <div class="input-zone-title"> 
+                    <div>Login</div> 
+                </div>
+                <div id="api-message"></div>
+                <div class="input-zone">
+                    <div class="input-tag">Username :</div>
+                    <input id="username" class="input-field" type="text" name="username" placeholder="Your username" required>
+                </div>
+                <div class="input-zone">
+                    <div class="input-tag">Password :</div>
+                    <input id="password" class="input-field" type="password" name="password" placeholder="Your password" required>
+                </div>
+                <button class="input-zone-button">Connexion</button>
+                <a class="input-zone-button" id="register" href="register.html">Register</a>
+            </div>
+        </form>
+    </body>
+</html>
