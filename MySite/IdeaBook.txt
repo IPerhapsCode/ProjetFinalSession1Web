@@ -1,0 +1,23 @@
+The site begins with a sorta voice over
+
+The background is a pastel color and the words
+Hi, I'm Paul. 
+Appear one after the other as someone speaks them
+
+We then slide down to find the words 
+Welcome to my World.
+Those words are spoken as we slide down
+
+While we slide down 
+A 3d model of a planet slides up
+It ends up sitting behind the text
+The 3d model constantly rotates
+The user can drag on it to make spin faster
+Or even change its rotation
+
+Also, a contextual menu appears on the side of screen
+The menu is composed of dots 
+One for each section of the page
+When hovering over a dot
+The title of the section fades in
+It fades out once the mouse is removed

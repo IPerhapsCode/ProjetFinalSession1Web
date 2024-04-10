@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Open+Sans:wght@600&family=Pixelify+Sans:wght@600&family=Poppins:wght@300&family=Reddit+Mono:wght@200..900&family=Smooch+Sans&display=swap');
+
+html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#zone-init, #zone-planet{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    
+    height: 100%;
+    width: 100%;
+}
+
+/* Dialogue A1 */
+#zone-init{
+   top: 0%;
+}
+
+#dialogue-a1{
+    display: grid;
+    grid-template-columns: 17.5% 2.3% 35% 44.4% 0.05%;
+    width: 55vw;
+}
+
+.a1{
+    display:flex;
+    justify-content: center;
+}
+
+/* Dialogue A2 */
+#zone-planet{
+    overflow: hidden;
+    top: 100%;
+}
+
+#zone-planet video{ /*To note*/
+    z-index: -1;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translateX(-25%) translateY(-25%);
+}
+
+/* General */
+.text-title{
+    font-family: "Reddit mono", monospace;
+    font-weight: 500;
+    font-size: 10vw;
+}
