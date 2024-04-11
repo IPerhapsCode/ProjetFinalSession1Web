@@ -1,3 +1,9 @@
+//To fix
+Currently the slide animation doesnt use delta time
+The render zone size for the planet isn't being changed on window resize
+The planets rotation should carry momemtum from when the user spun it
+//
+
 The site begins with a sorta voice over
 
 The background is a pastel color and the words
@@ -6,14 +12,16 @@ Appear one after the other as someone speaks them
 
 We then slide down to find the words 
 Welcome to my World.
-Those words are spoken as we slide down
+Those words are spoken as they fade in after we slode down
 
 While we slide down 
-A 3d model of a planet slides up
 It ends up sitting behind the text
 The 3d model constantly rotates
 The user can drag on it to make spin faster
 Or even change its rotation
+An svg path could go down from the dot of the first sentence
+And wrap itself around the planet
+If possible the text could be an svg path 
 
 Also, a contextual menu appears on the side of screen
 The menu is composed of dots 

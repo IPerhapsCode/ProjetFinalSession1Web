@@ -40,7 +40,15 @@ html, body{
     top: 100%;
 }
 
-#zone-planet video{ /*To note*/
+#planet{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vw;
+}
+
+/* #zone-planet video{ To note
     z-index: -1;
     min-width: 100%;
     min-height: 100%;
@@ -48,7 +56,7 @@ html, body{
     top: 25%;
     left: 25%;
     transform: translateX(-25%) translateY(-25%);
-}
+} */
 
 /* General */
 .text-title{
