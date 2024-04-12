@@ -35,24 +35,17 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 
 window.addEventListener("load", () => {
     zoneInit = document.querySelector("#zone-init");
-    zoneInit.style.background = "#A7C7E7";
 
     zonePlanet = document.querySelector("#zone-planet");
     // zonePlanet.scrollLeft = zonePlanet.scrollWidth/8; /*To note*/
-    zonePlanet.style.background = "#212121";
     
     //To note 3D model implementation
     loader.load(
         "./media/model/low_poly_planet_earth.glb",
         function(gltf){
             object = gltf.scene;
-            let boundingBox = new THREE.Box3().setFromObject(object);
-            let center = new THREE.Vector3();
-            boundingBox.getCenter(center);
-            let offset = new THREE.Vector3();
-            offset.subVectors(object.position, center);
-            object.position.sub(offset);
             scene.add(object);
+            modelAnimation();
         },
         function(xhr){
             console.log("Loading: " + (xhr.loaded / xhr.total * 100) + "%")
@@ -66,7 +59,7 @@ window.addEventListener("load", () => {
     document.querySelector("#planet").appendChild(renderer.domElement);
     //Camera
     camera.position.z = 5;
-    camera.position.y = 2.2;
+    camera.position.y = 1;
     //Light
     const topLight = new THREE.DirectionalLight(0xffffff, 1);
     topLight.position.set(500, 500, 500);
@@ -81,6 +74,12 @@ window.addEventListener("load", () => {
         mouseY = e.clientY;
     };
 
+    window.onresize = (e) =>{ //To note
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    }
+
     zonePlanet.addEventListener('mouseup', (e) =>{
         clickingPlanet = false;
     });
@@ -93,7 +92,7 @@ window.addEventListener("load", () => {
         clickingPlanet = true;
     });
 
-    intro();
+    //intro();
 });
 
 const intro = () =>{
@@ -163,8 +162,13 @@ const slideOut = () =>{
     }
 };
 
+const verticalSlide = () =>{
+
+}
+
 const modelAnimation = () =>{ //Could be interesting if the planet keeps momentum after being interacted with
-    let test = currentTopValue(zonePlanet);
+    let test = currentTopValue(zonePlanet); //I need to find a way to use an oberserver this doesnt make any sense
+    //Could be nice if the opactiy grows when it comes into view as well 
     if(test < 70 && test > -70)
     {
         //Standardisation of the animation

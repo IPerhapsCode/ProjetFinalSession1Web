@@ -1,6 +1,7 @@
 //To fix
 Currently the slide animation doesnt use delta time
-The render zone size for the planet isn't being changed on window resize
+The slide animation needs to be rewritten to use the scroll bar
+Need to use an observer to know when the renderer is present on screen
 The planets rotation should carry momemtum from when the user spun it
 //
 
