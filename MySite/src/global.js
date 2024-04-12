@@ -217,3 +217,14 @@ const currentTopValue = (node) =>{
     }
     return string;
 }
+
+const showPath = () => {
+    let path = document.querySelector("path");
+    let pathLength = path.getTotalLength();
+
+    
+    path.style.strokeDasharray = pathLength + ' ' + pathLength;
+    path.style.strokeDashoffset = pathLength;
+
+
+}
