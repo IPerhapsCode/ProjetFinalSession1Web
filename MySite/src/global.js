@@ -4,18 +4,20 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // To allow for importing the .gltf file
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { pass } from "three/examples/jsm/nodes/Nodes.js";
 
 //Variables
 let mouseX;
 let mouseY;
+let defaultSpeed = 0.0001;
+let speed = defaultSpeed;
+let momentum = 0.01;
+let decreasingMomentum = 0.01192;
 
 //Intro variables
 let introDelay = 0;
 let slidePositionA = 0;
 let slidePositionB = 100;
-let momentum = 0.008;
-let decreasingMomentum = 0.01192;
-let speed = 0.0001;
 let direction = "";
 let zoneInit;
 
@@ -93,6 +95,9 @@ window.addEventListener("load", () => {
     });
 
     //intro();
+    setTimeout(() => { //To note
+        verticalSlide(window.scrollY, window.scrollY, zonePlanet.getBoundingClientRect().top);
+    }, 4500);
 });
 
 const intro = () =>{
@@ -162,8 +167,67 @@ const slideOut = () =>{
     }
 };
 
-const verticalSlide = () =>{
+//This function needs to stop whenever the user starts scrolling 
+//Moves the position of the scroll bar vertically
+const verticalSlide = (pos, start, target) =>{ //To note
+    console.log(Math.abs(pos / (target))); //While going down le pourcentage va de 0 à 100 mais en montant c'est l'inverse
 
+    if(target + start > pos) //If we're scrolling down
+    {
+        speed += momentum; //Gonna have to tweak this a lot to get smooth scrolling 
+        if(Math.abs(pos / (target)) <= 0.70)
+        {
+        
+        }
+        // else if(Math.abs(pos / (target)) > 0.70)
+        // {
+        //     speed -= momentum;
+        // }
+
+        pos += speed;
+
+        if(pos > target + start) //If we reached close enough to the target
+        {
+            pos = target + start;
+        }
+    }
+    else if(target + start < pos) //If we're scrolling up
+    {
+        speed += momentum; 
+        if(Math.abs(pos / (target)) <= 0.30) 
+        {
+            
+        }
+        // else if(Math.abs(pos / (target)) > 0.30)
+        // {
+        //     speed -= momentum;
+        // }
+
+        pos -= speed;
+        console.log(pos, target + start)
+        if(pos < target + start) //If we reached close enough to the target
+        {
+            pos = target + start;
+        }
+    }
+    else if(target + start == pos)
+    {
+        pass
+    }
+
+    //Actually moves the scrollbar
+    window.scrollTo(0, pos);
+    
+    if(start + target != pos) //Calls the next animation frame if we havent reached the finish line yet
+    {//To note
+        window.requestAnimationFrame(() => {
+            verticalSlide(pos, start, target)
+        });
+    }
+    else //Resets our variables whenever the animation is finished
+    {
+        speed = defaultSpeed;
+    }
 }
 
 const modelAnimation = () =>{ //Could be interesting if the planet keeps momentum after being interacted with
