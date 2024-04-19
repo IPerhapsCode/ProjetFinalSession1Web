@@ -11,8 +11,8 @@ let mouseX;
 let mouseY;
 let defaultSpeed = 0.0001;
 let speed = defaultSpeed;
-let momentum = 0.01;
-let decreasingMomentum = 0.01192;
+let momentum = 0.08;
+let decreasingMomentum = 0.245;
 
 //Intro variables
 let introDelay = 0;
@@ -96,7 +96,7 @@ window.addEventListener("load", () => {
 
     //intro();
     setTimeout(() => { //To note
-        verticalSlide(window.scrollY, window.scrollY, zonePlanet.getBoundingClientRect().top);
+        verticalSlide(window.scrollY, window.scrollY, zoneInit.getBoundingClientRect().top);
     }, 4500);
 });
 
@@ -166,23 +166,38 @@ const slideOut = () =>{
         zoneInit.remove();
     }
 };
-
+let increase = false;
+let decrease = false;
 //This function needs to stop whenever the user starts scrolling 
 //Moves the position of the scroll bar vertically
 const verticalSlide = (pos, start, target) =>{ //To note
-    console.log(Math.abs(pos / (target))); //While going down le pourcentage va de 0 à 100 mais en montant c'est l'inverse
-
-    if(target + start > pos) //If we're scrolling down
+    if(!increase) //Calculates the point at which the momentum should decrease
     {
-        speed += momentum; //Gonna have to tweak this a lot to get smooth scrolling 
-        if(Math.abs(pos / (target)) <= 0.70)
+        increase = 1 - (1 - Math.abs(pos / (target + start))) / 4;
+    }
+    if(!decrease) //Need to figure how to reverse this thing 
+    {
+        decrease = 1 - (1 - Math.abs(pos / (100 + start * 2))) / 4;
+        console.log(Math.abs(pos / (100 - start)), target - start, pos)
+        console.log(decrease)
+    }
+    console.log(pos / (target - start))
+    if(target + start > pos) //If we're scrolling down
+    {   
+        console.log(speed)
+        //Depending how much scrolling there is left to do increase or decrease the speed of the scroll
+        if(Math.abs(pos / (target + start)) <= increase)
         {
-        
+            speed += momentum;
         }
-        // else if(Math.abs(pos / (target)) > 0.70)
-        // {
-        //     speed -= momentum;
-        // }
+        else if(Math.abs(pos / (target + start)) > increase)
+        {
+            speed -= decreasingMomentum;
+            if(speed < 0) //If the speed ever gets below zero makes sure it is still positive
+            {
+                speed = 0.1;
+            }
+        }
 
         pos += speed;
 
@@ -194,17 +209,24 @@ const verticalSlide = (pos, start, target) =>{ //To note
     else if(target + start < pos) //If we're scrolling up
     {
         speed += momentum; 
-        if(Math.abs(pos / (target)) <= 0.30) 
+        //Depending how much scrolling there is left to do increase or decrease the speed of the scroll
+        if(Math.abs(pos / (target - start)) >= decrease)
         {
-            
+            console.log("buhr")
+            speed += momentum;
         }
-        // else if(Math.abs(pos / (target)) > 0.30)
-        // {
-        //     speed -= momentum;
-        // }
-
+        else if(Math.abs(pos / (target - start)) < decrease)
+        {
+            console.log("moment")
+            speed -= decreasingMomentum;
+            if(speed < 0) //If the speed ever gets below zero makes sure it is still positive
+            {
+                speed = 0.1;
+            }
+        }
+        console.log(speed)
         pos -= speed;
-        console.log(pos, target + start)
+    
         if(pos < target + start) //If we reached close enough to the target
         {
             pos = target + start;
@@ -227,6 +249,7 @@ const verticalSlide = (pos, start, target) =>{ //To note
     else //Resets our variables whenever the animation is finished
     {
         speed = defaultSpeed;
+        increase = false;
     }
 }
 
