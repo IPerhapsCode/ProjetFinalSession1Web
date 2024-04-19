@@ -12,7 +12,7 @@ let mouseY;
 let defaultSpeed = 0.0001;
 let speed = defaultSpeed;
 let momentum = 0.08;
-let decreasingMomentum = 0.245;
+let decreasingMomentum = 0.24;
 
 //Intro variables
 let introDelay = 0;
@@ -168,23 +168,25 @@ const slideOut = () =>{
 };
 let increase = false;
 let decrease = false;
-//This function needs to stop whenever the user starts scrolling 
+//This function needs to stop whenever the user starts scrolling, also the speed should be calculated using a curve that goes up for longer then it goes down
 //Moves the position of the scroll bar vertically
 const verticalSlide = (pos, start, target) =>{ //To note
     if(!increase) //Calculates the point at which the momentum should decrease
     {
         increase = 1 - (1 - Math.abs(pos / (target + start))) / 4;
+        console.log(increase)
     }
     if(!decrease) //Need to figure how to reverse this thing 
     {
-        decrease = 1 - (1 - Math.abs(pos / (100 + start * 2))) / 4;
-        console.log(Math.abs(pos / (100 - start)), target - start, pos)
+        decrease = Math.abs(pos / (start - target) * 2) / 4;
+        // console.log(Math.abs(pos - target + start / (start - target + start)), target - start, pos)
         console.log(decrease)
     }
-    console.log(pos / (target - start))
+    console.log("man")
+    
     if(target + start > pos) //If we're scrolling down
     {   
-        console.log(speed)
+        //console.log(speed)
         //Depending how much scrolling there is left to do increase or decrease the speed of the scroll
         if(Math.abs(pos / (target + start)) <= increase)
         {
@@ -208,23 +210,24 @@ const verticalSlide = (pos, start, target) =>{ //To note
     }
     else if(target + start < pos) //If we're scrolling up
     {
-        speed += momentum; 
+        //console.log(Math.abs(pos / (start - target) * 2), pos, start - target)
+        //console.log(speed)
         //Depending how much scrolling there is left to do increase or decrease the speed of the scroll
-        if(Math.abs(pos / (target - start)) >= decrease)
+        if(Math.abs(pos / (start - target) * 2) >= decrease)
         {
-            console.log("buhr")
+            //console.log("bruh")
             speed += momentum;
         }
-        else if(Math.abs(pos / (target - start)) < decrease)
+        else if(Math.abs(pos / (start - target) * 2) < decrease)
         {
-            console.log("moment")
+            //console.log("man")
             speed -= decreasingMomentum;
             if(speed < 0) //If the speed ever gets below zero makes sure it is still positive
             {
                 speed = 0.1;
             }
         }
-        console.log(speed)
+    
         pos -= speed;
     
         if(pos < target + start) //If we reached close enough to the target
