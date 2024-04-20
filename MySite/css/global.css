@@ -82,9 +82,12 @@ html{
 
 svg{
     position: absolute;
-    height: 100%;
-    left: 75%;
-    top: 10%;
+    top:7vh;
+    left:18vw;
+    /* left: 40%;
+    top: 48%;
+    width: 58%;
+    height: 112%; */
 }
 
 /* Dialogue A2 */

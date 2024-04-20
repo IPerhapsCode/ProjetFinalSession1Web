@@ -7,8 +7,10 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { pass } from "three/examples/jsm/nodes/Nodes.js";
 
 //Variables
-let mouseX;
+let mouseX;//Mouse position
 let mouseY;
+let increase = false; //Slide variables
+let decrease = false;
 let defaultSpeed = 0.0001;
 let speed = defaultSpeed;
 let momentum = 0.08;
@@ -94,99 +96,25 @@ window.addEventListener("load", () => {
         clickingPlanet = true;
     });
 
-    //intro();
     setTimeout(() => { //To note
-        verticalSlide(window.scrollY, window.scrollY, zoneInit.getBoundingClientRect().top);
+        verticalSlide(window.scrollY, window.scrollY, zonePlanet.getBoundingClientRect().top);
     }, 4500);
 });
 
-const intro = () =>{
-    let text = ["Hi", ",", " I'm", " Paul", "."];
-    let counter = 0;
-
-    //Prints the first message
-    print(document.querySelector("#a1-" + counter), text[counter++], 1000);
-    print(document.querySelector("#a1-" + counter), text[counter++], 700);
-    print(document.querySelector("#a1-" + counter), text[counter++], 1000);
-    print(document.querySelector("#a1-" + counter), text[counter++], 300);
-    print(document.querySelector("#a1-" + counter), text[counter++], 700);
-
-    setTimeout(() => {
-        //On ne peut présentement pas avoir de paramètre dans la fonction slideOut
-        direction = "-";
-        modelAnimation();
-        slideOut();
-    }, introDelay + 2000);
-};
-
-const print = (node, text, time) =>{
-    introDelay += time;
-
-    setTimeout(() => {
-        node.innerText += text;
-    }, introDelay);
-};
-
-const slideOut = () =>{
-    //Change the momentum of our animation
-    if(slidePositionB < 20)
-    {
-        speed -= decreasingMomentum;
-    }
-    else if(slidePositionB > 70){
-        speed += momentum;
-    }
-
-    //Add the speed value to the position of our objects
-    slidePositionA += speed;
-    slidePositionB -= speed;
-
-    //Makes sure the animation doesn't overshoot
-    if(slidePositionB < 0)
-    {
-        slidePositionB = 0;
-    }
-
-    //Change the position of animation
-    zoneInit.style.top = direction + slidePositionA + "%";
-    zonePlanet.style.top = slidePositionB + "%";
-
-    //Call this function once again if the animation is not over
-    if(slidePositionB > 0)
-    {
-        window.requestAnimationFrame(slideOut);
-    }
-    else
-    {
-        //Reset variables (Have to since I can't use parameters for this function)
-        speed = 0.1;
-        slidePositionA = 0;
-        slidePositionB = 100;
-        direction = "";
-        zoneInit.remove();
-    }
-};
-let increase = false;
-let decrease = false;
 //This function needs to stop whenever the user starts scrolling, also the speed should be calculated using a curve that goes up for longer then it goes down
 //Moves the position of the scroll bar vertically
 const verticalSlide = (pos, start, target) =>{ //To note
     if(!increase) //Calculates the point at which the momentum should decrease
     {
         increase = 1 - (1 - Math.abs(pos / (target + start))) / 4;
-        console.log(increase)
     }
-    if(!decrease) //Need to figure how to reverse this thing 
+    if(!decrease)
     {
-        decrease = Math.abs(pos / (start - target) * 2) / 4;
-        // console.log(Math.abs(pos - target + start / (start - target + start)), target - start, pos)
-        console.log(decrease)
+        decrease = Math.abs(pos / (start)) / 4;
     }
-    console.log("man")
     
     if(target + start > pos) //If we're scrolling down
     {   
-        //console.log(speed)
         //Depending how much scrolling there is left to do increase or decrease the speed of the scroll
         if(Math.abs(pos / (target + start)) <= increase)
         {
@@ -210,17 +138,13 @@ const verticalSlide = (pos, start, target) =>{ //To note
     }
     else if(target + start < pos) //If we're scrolling up
     {
-        //console.log(Math.abs(pos / (start - target) * 2), pos, start - target)
-        //console.log(speed)
         //Depending how much scrolling there is left to do increase or decrease the speed of the scroll
-        if(Math.abs(pos / (start - target) * 2) >= decrease)
+        if(Math.abs(pos / (start)) >= decrease)
         {
-            //console.log("bruh")
             speed += momentum;
         }
-        else if(Math.abs(pos / (start - target) * 2) < decrease)
+        else if(Math.abs(pos / (start)) < decrease)
         {
-            //console.log("man")
             speed -= decreasingMomentum;
             if(speed < 0) //If the speed ever gets below zero makes sure it is still positive
             {
@@ -253,6 +177,7 @@ const verticalSlide = (pos, start, target) =>{ //To note
     {
         speed = defaultSpeed;
         increase = false;
+        decrease = false;
     }
 }
 
